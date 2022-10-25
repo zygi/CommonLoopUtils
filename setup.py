@@ -51,10 +51,9 @@ setup(
         "ml_collections",
         "numpy",
         "packaging",
-        "tensorflow",
         "tensorflow_datasets",
         "typing_extensions",
-    ],
+    ] + (["tensorflow-macos"] if "darwin" == sys.platform else ["tensorflow-cpu"]),
     tests_require=tests_require,
     extras_require=dict(test=tests_require, pytorch=pytorch_require),
     classifiers=[
